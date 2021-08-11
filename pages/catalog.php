@@ -221,9 +221,6 @@
 	<?php
 		require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php";
 	?>
-	<style>
-		.empty-catalog {display: flex; justify-content: space-around;}
-	</style>
 	<main>
 		<div class="margin-container">
 			<nav aria-label="breadcrumb" class="breadcrumbs-container">

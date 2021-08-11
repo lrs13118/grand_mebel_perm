@@ -19,12 +19,6 @@
 		require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php";
 	?>
 	<main>
-		<style type="text/css">
-			.custommadefurniture-block-container li {padding: 5px 0;}
-			.ul-title {font-weight: bold;}
-			.custommadefurniture-title {font-size: 16pt; margin-bottom: 20px; margin-top: 20px;}
-			.custommadefurniture-img img {width: 100%;}
-		</style>
 		<div class="margin-container">
 			<nav aria-label="breadcrumb" class="breadcrumbs-container">
 				<ol class="breadcrumb">
@@ -33,7 +27,7 @@
 				</ol>
 			</nav>
 		</div>
-		<div>
+		<div id="custommadefurniture">
 			<div class="margin-container custommadefurniture-block-container">
 				<div>
 					<div class="h">Мягкая мебель по индивидуальным заказам</div>
@@ -72,7 +66,7 @@
 			</div>
 			<div class="custommadefurniture-img"><img src="/web/img/custommadefurniture/process.jpg" alt=""></div>
 		</div>
-		<div>
+		<div id="beds">
 			<div class="margin-container custommadefurniture-block-container">
 				<div>
 					<div class="h">Кровати по индивидуальным заказам</div>
@@ -90,7 +84,7 @@
 				</div>
 			</div>
 		</div>
-		<div>
+		<div id="kitchens">
 			<div class="margin-container custommadefurniture-block-container">
 				<div>
 					<div class="h">Кухни по индивидуальным заказам</div>

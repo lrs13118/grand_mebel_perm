@@ -34,15 +34,6 @@
 				</ol>
 			</nav>
 		</div>
-		<style type="text/css">
-			.partners-container {display: grid; grid-template-columns: 25% 25% 25% 25%;}
-			.partners-container div {margin: 10px 5px 0 5px;}
-			.partners-block .partner-block {width: 90%; margin-left: 5%; margin-top: -30px; border: 1px solid #c9cad1;}
-			.partner-block a {text-decoration: none;}
-			.partner-block img {width: 100%;}
-			.partner-block-desc div {color: #696a6e; font-size: 10pt;}
-			.partner-block-desc .partner-title {font-weight: bold; font-size: 12pt;}
-		</style>
 		<div class="margin-container partners-container">
 			<?php foreach ($arPartners as $arPartner){?>
 				<div class="partners-block">

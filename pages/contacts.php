@@ -27,15 +27,6 @@
 				</ol>
 			</nav>
 		</div>
-		<style type="text/css">
-			.contacts-container {display: grid; grid-template-columns: 70% 30%;}
-			.contacts-block {margin-top: -20px; padding: 10px 10px 15px 10px;}
-			.contacts-block a:hover {color: red;}
-			.contacts-social-networks img {width: 30px;}
-			@media (max-width: 1500px) {
-				.contacts-container {display: grid; grid-template-columns: 100%;}
-			}
-		</style>
 		<div class="margin-container contacts-container">
 			<div class="map-container">
 				<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A550f39236529587717876579f4206a46e0361daf97ecaef82008db5de303c37e&amp;width=100%&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>

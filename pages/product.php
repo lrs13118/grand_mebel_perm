@@ -8,10 +8,6 @@ if (isset($_GET['id']))
 	$productResult = mysqli_query($connection, 'SELECT * FROM products WHERE id = "'.$_GET['id'].'"');
 	$arProduct = mysqli_fetch_assoc($productResult);
 
-	//echo '<pre>';
-	//print_r($arProduct);
-	//echo '</pre>';
-
 	$title = $arProduct['title'];
 
 	$arProductImages['mainImg'] = 'no-foto.jpg';
@@ -101,21 +97,6 @@ if (isset($_GET['id']))
 				</ol>
 			</nav>
 		</div>
-		<style>
-			.product-container {display: grid; grid-template-columns: 50% 50%;}
-			.product-img-container {display: grid; grid-template-columns: 15% 85%;}
-			.product-img-container div {margin: 5px;}
-			.product-img-container img {width: 100%;}
-			.crop-img-container img {cursor: pointer;}
-			.product-desc-container {padding-left: 20px;}
-			.product-price {font-size: 20pt; margin-bottom: 10px;}
-			.product-price span {font-size: 25pt; color: red; font-weight: bold;}
-			.product-desc {font-size: 14pt;}
-			.product-desc-preview {margin-bottom: 10px;}
-			.product-desc-description {margin-bottom: 10px;}
-			.kitchen-prices {font-size: 14pt; margin-top: 10px;}
-			.kitchen-prices div {margin-bottom: 5px;}
-		</style>
 		<div class="margin-container">
 			<div>
 				<div class="h"><?php echo $title;?></div>
@@ -177,11 +158,6 @@ if (isset($_GET['id']))
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			$(".crop-img").click(function() {
-				$("#mainImg").attr('src', $(this).attr('src'));
-			});
-		</script>
 	</main>
 	<?php
 		require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php";

@@ -1,15 +1,3 @@
-	<style>
-		.wardrobe-title {font-size: 16pt; margin-bottom: 20px; margin-top: 20px;}
-		.wardrobe-blocks-container img {width: 100%;}
-		.wardrobe-blocks-container div {margin-bottom: 20px;}
-		.profile-color-container {display: grid; grid-template-columns: 33.33% 33.33% 33.33%;}
-		.profile-color {text-align: center;}
-		.wardrobe-filling-container {display: grid; grid-template-columns: 50% 50%;}
-		.wardrobe-equipment-container {display: grid; grid-template-columns: 25% 25% 25% 25%;}
-		.wardrobe-price-container {display: grid; grid-template-columns: 100%;}
-		.wardrobe-price-container img {width: 80%;}
-		.wardrobe-price-container div {margin-left: 20%;}
-	</style>
 <div class="margin-container">
 	<div>
 		<div class="h">Шкафы-купе</div>

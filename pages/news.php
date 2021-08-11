@@ -78,9 +78,6 @@
 				</ol>
 			</nav>
 		</div>
-		<style type="text/css">
-			.title-pagination-container {display: flex; justify-content: space-between;}
-		</style>
 		<div class="margin-container news-container">
 			<div class="brandface-img">
 				<div><img src="/web/img/brandface.png"></div>

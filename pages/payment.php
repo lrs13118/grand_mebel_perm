@@ -27,16 +27,6 @@
 				</ol>
 			</nav>
 		</div>
-		<style type="text/css">
-			.payment-container {display: grid; grid-template-columns: 33.33% 33.33% 33.33%;}
-			.payment-container > div {margin: 5px;}
-			.payment-block {margin-top: -20px; padding: 10px; font-size: 13pt;}
-			.payment-block > div {margin-bottom: 5px;}
-			.payment-block a:hover {color: red;}
-			.delivery-container {display: grid; grid-template-columns: 50% 50%;}
-			.delivery-container > div {margin: 5px;}
-			.delivery-block {margin-top: -20px;}
-		</style>
 		<div class="margin-container">
 			<div class="payment-container">
 				<div>

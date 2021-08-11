@@ -38,14 +38,6 @@
 				<a class="slider__control slider__control_prev" href="#" role="button"></a>
 				<a class="slider__control slider__control_next" href="#" role="button"></a>
 			</div>
-			<style>
-				.near-slider-right-block {border: 1px solid #c9cad1;}
-				.sticker {position: absolute; background-color: red; color: white; font-size: 10pt; padding: 5px;}
-				.side-product-desc-container {background-color: white; font-size: 9pt; padding: 5px;}
-				.side-product-title {color: #696a6e; font-weight: bold; font-size: 11pt; text-align: center; margin-bottom: 3px;}
-				.side-product-price {color: #696a6e; font-weight: bold; font-size: 11pt; margin-top: 5px;}
-				.side-product-price span {color: red; font-size: 13pt;}
-			</style>
 			<div class="near-slider-right-block">
         		<div>
         			<?php 
@@ -86,7 +78,7 @@
 						$firstLeaderResult = mysqli_query($connection, 'SELECT * FROM products WHERE id = 21');
 						$firstLeader = mysqli_fetch_assoc($firstLeaderResult);
 					?>
-					<a href="">
+					<a href="product.php?id=<?php echo $firstLeader['id']?>">
 						<div><img src="/web/img/products/<?php echo $firstLeader['img'];?>"></div>
 						<div class="block-desc">
 							<div class="block-name"><?php echo $firstLeader['title'];?></div>
@@ -101,7 +93,7 @@
 						$firstLeaderResult = mysqli_query($connection, 'SELECT * FROM products WHERE id = 13');
 						$firstLeader = mysqli_fetch_assoc($firstLeaderResult);
 					?>
-					<a href="">
+					<a href="product.php?id=<?php echo $firstLeader['id']?>">
 						<div><img src="/web/img/products/<?php echo $firstLeader['img'];?>"></div>
 						<div class="block-desc">
 							<div class="block-name"><?php echo $firstLeader['title'];?></div>
@@ -116,7 +108,7 @@
 						$firstLeaderResult = mysqli_query($connection, 'SELECT * FROM products WHERE id = 165');
 						$firstLeader = mysqli_fetch_assoc($firstLeaderResult);
 					?>
-					<a href="">
+					<a href="product.php?id=<?php echo $firstLeader['id']?>">
 						<div><img src="/web/img/products/<?php echo $firstLeader['img'];?>"></div>
 						<div class="block-desc">
 							<div class="block-name"><?php echo $firstLeader['title'];?></div>
@@ -173,7 +165,7 @@
 					$n++;
 				?>
 				<div class="block <?php if ($n == 2) {echo 'block-hide-two';} if ($n == 3) {echo 'block-hide-three';}?>">
-					<a href="">
+					<a href="product.php?id=<?php echo $new['id']?>">
 						<div><img src="/web/img/products/<?php echo $new['img']? $new['img'] : 'kot.jpg';?>"></div>
 						<div class="block-desc">
 							<div class="block-name"><?php echo $new['title'];?></div>
@@ -197,25 +189,25 @@
 			<div class="h">Специальные предложения под индивидуальный заказ</div>
 			<div class="square-grid-container">
 				<div class="square-grid-block">
-					<a href="">
+					<a href="custommadefurniture.php#custommadefurniture">
 						<div class="increase-img-block"><img src="/web/img/cmf-sofa.png"></div>
 						<div>Мягкая мебель</div>
 					</a>
 				</div>
 				<div class="square-grid-block">
-					<a href="">
+					<a href="custommadefurniture.php#beds">
 						<div class="increase-img-block"><img src="/web/img/cmf-bed.png"></div>
 						<div>Кровати</div>
 					</a>
 				</div>
 				<div class="square-grid-block">
-					<a href="">
+					<a href="catalog.php?type=wardrobe">
 						<div class="increase-img-block"><img src="/web/img/cmf-wardrobes.png"></div>
 						<div>Шкафы-купе</div>
 					</a>
 				</div>
 				<div class="square-grid-block">
-					<a href="">
+					<a href="custommadefurniture.php#kitchens">
 						<div class="increase-img-block"><img src="/web/img/cmf-kitchen.png"></div>
 						<div>Кухни</div>
 					</a>
@@ -235,7 +227,7 @@
 					$p++;
 				?>
 				<div class="block <?php if ($p == 2) {echo 'block-hide-two';} if ($p == 3) {echo 'block-hide-three';}?>">
-					<a href="">
+					<a href="news.php#<?php echo $promotion['identification'];?>">
 						<div><img src="/web/img/promotion/<?php echo $promotion['img'];?>"></div>
 						<div class="block-desc">
 							<div class="block-promo-name"><?php echo $promotion['title'];?></div>

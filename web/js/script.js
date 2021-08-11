@@ -71,6 +71,10 @@ $(document).ready (function()
 			}
 		});
 	});
+
+	$(".crop-img").click(function() {
+		$("#mainImg").attr('src', $(this).attr('src'));
+	});
 });
 
 function checkParams()
@@ -87,7 +91,3 @@ function checkParams()
 		$('#request-submit').attr('disabled', 'disabled');
 	}
 }
-
-$(".crop-img").click(function() {
-	$("#mainImg").attr('src', $(this).attr('src'));
-});

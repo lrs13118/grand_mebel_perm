@@ -49,6 +49,7 @@ if (!empty($messageContent))
 	];
 
 	$isMailing = false;
+	$isInSpam = false;
 	if (stripos($email, 'no-reply')) 
 	{
 		$isMailing = true;
@@ -61,6 +62,7 @@ if (!empty($messageContent))
 		if ($spamEmail)
 		{
 			$isMailing = true;
+			$isInSpam = true;
 		}
 	}
 	if (!$isMailing)
@@ -104,8 +106,10 @@ if (!empty($messageContent))
 			echo "Wrong data";
 		}
 	} else {
-
-		mysqli_query ($connection, "INSERT INTO `spam` (`id`, `name`, `phone`, `email`, `message`, `message_date`) VALUES (NULL, '".$name."', '".$phone."', '".$email."', '".$messageContent."', NOW() )");
+		if (!$isInSpam)
+		{
+			mysqli_query ($connection, "INSERT INTO `spam` (`id`, `name`, `phone`, `email`, `message`, `message_date`) VALUES (NULL, '".$name."', '".$phone."', '".$email."', '".$messageContent."', NOW() )");
+		}
 
 		echo "Mailing";
 	}

@@ -147,6 +147,10 @@ li.blackcolor {border-bottom: 1px solid grey;}
 .wardrobe-price-container {display: grid; grid-template-columns: 100%;}
 .wardrobe-price-container img {width: 80%;}
 .wardrobe-price-container div {margin-left: 20%;}
+#auth-response {display: flex; justify-content: space-around;}
+#auth-form-container {display: flex; justify-content: space-around; padding: 20px 0;}
+#auth-form-container .input {margin: 20px;}
+#auth-form-container .input input {background-color: white;}
 @media (max-width: 1600px) {
 	.catalog-blocks-container {display: grid; grid-template-columns: 33.33% 33.33% 33.33%;}
 }

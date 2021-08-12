@@ -37,12 +37,12 @@
 							<div >
 								<nav class="menu">
 									<ul>
-										<li><a href="partners.php">Наши партнеры</a></li>
-										<li><a href="payment.php">Оплата и доставка</a></li>
-										<li><a href="news.php">Новости и акции</a></li>
-										<li><a href="articles.php">Заметки</a></li>
-										<li><a href="contacts.php">Контакты</a></li>
-										<li><a href="sitemap.php">Карта сайта</a></li>
+										<li><a href="/pages/partners.php">Наши партнеры</a></li>
+										<li><a href="/pages/payment.php">Оплата и доставка</a></li>
+										<li><a href="/pages/news.php">Новости и акции</a></li>
+										<li><a href="/pages/articles.php">Заметки</a></li>
+										<li><a href="/pages/contacts.php">Контакты</a></li>
+										<li><a href="/pages/sitemap.php">Карта сайта</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -74,12 +74,12 @@
 					</div>
 					<nav class="menu">
 						<ul>
-							<li><a href="partners.php">Наши партнеры</a></li>
-							<li><a href="payment.php">Оплата и доставка</a></li>
-							<li><a href="news.php">Новости и акции</a></li>
-							<li><a href="articles.php">Заметки</a></li>
-							<li><a href="contacts.php">Контакты</a></li>
-							<li><a href="sitemap.php">Карта сайта</a></li>
+							<li><a href="/pages/partners.php">Наши партнеры</a></li>
+							<li><a href="/pages/payment.php">Оплата и доставка</a></li>
+							<li><a href="/pages/news.php">Новости и акции</a></li>
+							<li><a href="/pages/articles.php">Заметки</a></li>
+							<li><a href="/pages/contacts.php">Контакты</a></li>
+							<li><a href="/pages/sitemap.php">Карта сайта</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -99,17 +99,17 @@
 					<nav>
 						<div>
 							<ul>
-								<li><a href="catalog.php?type=softfurniture">Мягкая мебель</a></li>
-								<li><a href="catalog.php?type=kitchen">Кухни</a></li>
-								<li><a href="catalog.php?type=wardrobe">Шкафы-купе</a></li>
-								<li><a href="catalog.php?type=cabinetfurniture">Корпусная мебель</a></li>
+								<li><a href="/pages/catalog.php?type=softfurniture">Мягкая мебель</a></li>
+								<li><a href="/pages/catalog.php?type=kitchen">Кухни</a></li>
+								<li><a href="/pages/catalog.php?type=wardrobe">Шкафы-купе</a></li>
+								<li><a href="/pages/catalog.php?type=cabinetfurniture">Корпусная мебель</a></li>
 							</ul>
 						</div>
 						<div>
 							<ul>
-								<li><a href="catalog.php?type=other">Другое</a></li>
-								<li class="red-color"><a href="catalog.php?type=sale">% Sale</a></li>
-								<li class="red-color bold"><a href="custommadefurniture.php">! Мебель под заказ !</a></li>
+								<li><a href="/pages/catalog.php?type=other">Другое</a></li>
+								<li class="red-color"><a href="/pages/catalog.php?type=sale">% Sale</a></li>
+								<li class="red-color bold"><a href="/pages/custommadefurniture.php">! Мебель под заказ !</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -118,13 +118,13 @@
 			<div class="bottom-header-container">
 				<nav class="catalog">
 					<ul>
-						<li class="red-color hide-menu-item"><a href="catalog.php?type=sale">% Sale</a></li>
-						<li><a href="catalog.php?type=softfurniture">Мягкая мебель</a></li>
-						<li><a href="catalog.php?type=kitchen">Кухни</a></li>
-						<li><a href="catalog.php?type=wardrobe">Шкафы-купе</a></li>
-						<li><a href="catalog.php?type=cabinetfurniture">Корпусная мебель</a></li>
-						<li><a href="catalog.php?type=other">Другое</a></li>
-						<li class="red-background bold hide-menu-item"><a href="custommadefurniture.php">! Мебель под заказ !</a></li>
+						<li class="red-color hide-menu-item"><a href="/pages/catalog.php?type=sale">% Sale</a></li>
+						<li><a href="/pages/catalog.php?type=softfurniture">Мягкая мебель</a></li>
+						<li><a href="/pages/catalog.php?type=kitchen">Кухни</a></li>
+						<li><a href="/pages/catalog.php?type=wardrobe">Шкафы-купе</a></li>
+						<li><a href="/pages/catalog.php?type=cabinetfurniture">Корпусная мебель</a></li>
+						<li><a href="/pages/catalog.php?type=other">Другое</a></li>
+						<li class="red-background bold hide-menu-item"><a href="/pages/custommadefurniture.php">! Мебель под заказ !</a></li>
 					</ul>
 				</nav>
 			</div>

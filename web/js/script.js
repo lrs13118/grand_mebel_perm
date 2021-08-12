@@ -75,6 +75,64 @@ $(document).ready (function()
 	$(".crop-img").click(function() {
 		$("#mainImg").attr('src', $(this).attr('src'));
 	});
+
+	$('#auth-submit').click(function()
+	{
+		$('#auth-submit-container').css('display', 'none');
+		$('#auth-loading-container').css('display', 'block');
+
+		$.ajax({
+			type: 'POST',
+			url: '/php/login.php',
+			data: {
+				login: $('#auth-login').val(),
+				password: $('#auth-password').val(),
+			},
+			success: function(response)
+			{
+				if (response == 'Success')
+				{
+					window.location.replace("/pages/admin/index.php");
+				}
+
+				let responseMessage = '';
+				if (response == 'Wrong data')
+				{
+					responseMessage = 'К сожалению, вы неправильно ввели логин или пароль! Попробуйте еще раз!';
+					$('#auth-response').html(responseMessage);
+					$('#auth-loading-container').css('display', 'none');
+					$('#auth-submit-container').css('display', 'block');
+				}
+			},
+			error: function (response)
+			{
+				console.log(response);
+				$('#auth-response').html('Ошибка!');
+				$('#auth-loading-container').css('display', 'none');
+				$('#auth-submit-container').css('display', 'block');
+			}
+		});
+	});
+
+	$('#log-out').click(function()
+	{
+		$.ajax({
+			type: 'POST',
+			url: '/php/log-out.php',
+			success: function(response)
+			{
+				if (response == 'Success')
+				{
+					if (window.location.pathname == '/pages/admin/index.php')
+					{
+						window.location.replace("/pages/admin/auth.php");
+					} else {
+						window.location.reload();
+					}
+				}
+			},
+		});
+	});
 });
 
 function checkParams()
@@ -89,5 +147,18 @@ function checkParams()
 		$('#request-submit').removeAttr('disabled');
 	} else {
 		$('#request-submit').attr('disabled', 'disabled');
+	}
+}
+
+function checkLoginParams()
+{
+	let login = $('#auth-login').val();
+	let password = $('#auth-password').val();
+
+	if (login.length != 0 && password.length != 0)
+	{
+		$('#auth-submit').removeAttr('disabled');
+	} else {
+		$('#auth-submit').attr('disabled', 'disabled');
 	}
 }

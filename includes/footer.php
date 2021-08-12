@@ -15,24 +15,24 @@
 				<div class="top-footer-block">
 					<ul>
 						<li class="h">О нас</li>
-						<li><a href="partners.php">Наши партнеры</a></li>
-						<li><a href="payment.php">Оплата и доставка</a></li>
-						<li><a href="news.php">Новости и акции</a></li>
-						<li><a href="articles.php">Заметки</a></li>
-						<li><a href="contacts.php">Контакты</a></li>
-						<li><a href="sitemap.php">Карта сайта</a></li>
+						<li><a href="/pages/partners.php">Наши партнеры</a></li>
+						<li><a href="/pages/payment.php">Оплата и доставка</a></li>
+						<li><a href="/pages/news.php">Новости и акции</a></li>
+						<li><a href="/pages/articles.php">Заметки</a></li>
+						<li><a href="/pages/contacts.php">Контакты</a></li>
+						<li><a href="/pages/sitemap.php">Карта сайта</a></li>
 					</ul>
 				</div>
 				<div class="top-footer-block">
 					<ul>
 						<li class="h">Каталог</li>
-						<li class="red-color"><a href="catalog.php?type=sale">% Sale</a></li>
-						<li><a href="catalog.php?type=softfurniture">Мягкая мебель</a></li>
-						<li><a href="catalog.php?type=kitchen">Кухни</a></li>
-						<li><a href="catalog.php?type=wardrobe">Шкафы-купе</a></li>
-						<li><a href="catalog.php?type=cabinetfurniture">Корпусная мебель</a></li>
-						<li><a href="catalog.php?type=other">Другое</a></li>
-						<li class="red-color"><a href="custommadefurniture.php">! Мебель под заказ !</a></li>	
+						<li class="red-color"><a href="/pages/catalog.php?type=sale">% Sale</a></li>
+						<li><a href="/pages/catalog.php?type=softfurniture">Мягкая мебель</a></li>
+						<li><a href="/pages/catalog.php?type=kitchen">Кухни</a></li>
+						<li><a href="/pages/catalog.php?type=wardrobe">Шкафы-купе</a></li>
+						<li><a href="/pages/catalog.php?type=cabinetfurniture">Корпусная мебель</a></li>
+						<li><a href="/pages/catalog.php?type=other">Другое</a></li>
+						<li class="red-color"><a href="/pages/custommadefurniture.php">! Мебель под заказ !</a></li>
 					</ul>				
 				</div>
 				<div class="top-footer-block">
@@ -79,7 +79,13 @@
 			<div class="bottom-footer-container grey-background">
 				<div class="footer-info">
 					<div>© 2017-<?php echo date("Y");?> Мебельный салон "Гранд-мебель" (ТЦ "Терра-Интерьера")</div>
-					<div><a href="">Админ</a></div>
+					<div>
+						<a href="/pages/admin/index.php">Админ</a>
+						<?php if ($_SESSION['auth_admin'] == "yes_auth_admin") { ?>
+							<span>  </span>
+							<a href="javascript:void(0);" id="log-out">Выход</a>
+						<?php } ?>
+					</div>
 				</div>
 				<div><a href=""><img src="/web/img/LRS.jpg"></a></div>
 			</div>

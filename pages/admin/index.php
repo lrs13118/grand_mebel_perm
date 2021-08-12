@@ -1,5 +1,7 @@
 <?php
-	session_start();
+session_start();
+if ($_SESSION['auth_admin'] == "yes_auth_admin")
+{
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/connection.php";
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/constants.php";
 ?>
@@ -9,7 +11,7 @@
 	<?php
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/meta.php";
 	?>
-	<title>Заметки | <?php echo TITLE;?></title>
+	<title>Админ-панель | <?php echo TITLE;?></title>
 	<?php
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/links.php";
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/scripts.php";
@@ -20,10 +22,20 @@
 		require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php";
 	?>
 	<main>
-		
+		<div class="margin-container">
+			<nav aria-label="breadcrumb" class="breadcrumbs-container">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/">Главная</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Админ-панель</li>
+				</ol>
+			</nav>
+		</div>
 	</main>
 	<?php
 		require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php";
 	?>
 </body>
 </html>
+<?php 
+} else {header("location:/pages/admin/auth.php");}
+?>

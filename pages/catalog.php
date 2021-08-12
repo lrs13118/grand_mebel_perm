@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/connection.php";
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/constants.php";
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
@@ -303,7 +304,7 @@
 						<div class="catalog-block">
 							<div class="grey-background line"></div>
 							<div class="product-block">
-								<a href="product.php?id=<?php echo $arProduct['id']?>">
+								<a href="/pages/product.php?id=<?php echo $arProduct['id']?>">
 									<div><img src="/web/img/products/<?php if ($arProduct['img']) {echo $arProduct['img'];} else {echo 'no-foto.jpg';}?>"></div>
 									<div class="prod-block-desc">
 										<div><?php echo $arProduct['title'];?></div>
@@ -414,7 +415,7 @@
 						<div class="catalog-block">
 							<div class="grey-background line"></div>
 							<div class="product-block">
-								<a href="product.php?id=<?php echo $arProduct['id']?>">
+								<a href="/pages/product.php?id=<?php echo $arProduct['id']?>">
 									<div><img src="/web/img/products/<?php if ($arProduct['img']) {echo $arProduct['img'];} else {echo 'no-foto.jpg';}?>"></div>
 									<div class="prod-block-desc">
 										<div><?php echo $arProduct['title'];?></div>

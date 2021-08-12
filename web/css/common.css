@@ -151,6 +151,14 @@ li.blackcolor {border-bottom: 1px solid grey;}
 #auth-form-container {display: flex; justify-content: space-around; padding: 20px 0;}
 #auth-form-container .input {margin: 20px;}
 #auth-form-container .input input {background-color: white;}
+.th-align {text-align: center;}
+.table-small-img img {width: 100%;}
+.td-width-5 {width: 5%; text-align: center;}
+.td-width-5 div	{display: flex; justify-content: space-around;}
+.td-width-10 {width: 10%;}
+.td-width-65 {width: 65%;}
+.table-product-title a {text-decoration: none; font-size: 14pt;}
+.table-product-title a:hover {color: ;}
 @media (max-width: 1600px) {
 	.catalog-blocks-container {display: grid; grid-template-columns: 33.33% 33.33% 33.33%;}
 }

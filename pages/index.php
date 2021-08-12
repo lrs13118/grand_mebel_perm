@@ -42,7 +42,7 @@
 			<div class="near-slider-right-block">
         		<div>
         			<?php 
-						$sideProductResult = mysqli_query($connection, 'SELECT * FROM products WHERE cat = 3 ORDER BY id DESC LIMIT 1');
+						$sideProductResult = mysqli_query($connection, 'SELECT * FROM products WHERE cat = 3 AND active = 1 ORDER BY id DESC LIMIT 1');
 						$sideProduct = mysqli_fetch_assoc($sideProductResult);
 					?>
         			<div>
@@ -160,7 +160,7 @@
 			<div class="blocks-container">
 				<?php
 				$n = 0;
-				$newResult = mysqli_query($connection, 'SELECT * FROM products ORDER BY id DESC LIMIT 3');
+				$newResult = mysqli_query($connection, 'SELECT * FROM products WHERE active = 1 ORDER BY id DESC LIMIT 3');
 				while ($new = mysqli_fetch_assoc($newResult))
 				{
 					$n++;

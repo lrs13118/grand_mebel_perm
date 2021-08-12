@@ -137,7 +137,7 @@
 			//PRODUCTS
 			if ($arSubNavItem)
 			{
-				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE pod_cat = "'.$arSubNavItem["prod_cat"].'" '.$sorting);
+				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE pod_cat = "'.$arSubNavItem["prod_cat"].'" AND active = 1 '.$sorting);
 				while ($product = mysqli_fetch_assoc($productsResult))
 				{
 					$arProducts[] = $product;
@@ -145,7 +145,7 @@
 			}
 			if ($subSection && !$arSubNavItem)
 			{
-				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE cat = "'.$subSection["cat"].'" '.$sorting);
+				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE cat = "'.$subSection["cat"].'" AND active = 1 '.$sorting);
 				while ($product = mysqli_fetch_assoc($productsResult))
 				{
 					$arProducts[] = $product;
@@ -153,7 +153,7 @@
 			}
 			if ($section && !$subSection && !$arSubNavItem)
 			{
-				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE main_cat = "'.$section["category_id"].'" '.$sorting);
+				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE main_cat = "'.$section["category_id"].'" AND active = 1 '.$sorting);
 				while ($product = mysqli_fetch_assoc($productsResult))
 				{
 					$arProducts[] = $product;
@@ -161,7 +161,7 @@
 			}
 			if ($sectionType == "sale")
 			{
-				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE sale_price > 0 '.$sorting);
+				$productsResult = mysqli_query($connection, 'SELECT * FROM products WHERE sale_price > 0 AND active = 1 '.$sorting);
 				while ($product = mysqli_fetch_assoc($productsResult))
 				{
 					$arProducts[] = $product;
@@ -192,7 +192,13 @@
 			{
 				if ($page > 1)
 				{
-					$start = $productsCount-($productsCount%$itemsPerPage);
+					$ost = $productsCount%$itemsPerPage;
+					if ($ost)
+					{
+						$start = $productsCount-$ost;
+					} else {
+						$start = $productsCount-$itemsPerPage;
+					}
 				}
 				if ($page >= 1)
 				{

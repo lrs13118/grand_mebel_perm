@@ -147,7 +147,6 @@ $(document).ready (function()
 			},
 			success: function(response)
 			{
-				console.log(response);
 				if (response == 'Success')
 				{
 					window.location.reload();
@@ -164,7 +163,6 @@ $(document).ready (function()
 			},
 			error: function (response)
 			{
-				console.log(response);
 				$('#edit-constants-response').html('Ошибка!');
 				$('#edit-constants-loading-container').css('display', 'none');
 				$('#edit-constants-submit-container').css('display', 'block');
@@ -199,4 +197,18 @@ function checkLoginParams()
 	} else {
 		$('#auth-submit').attr('disabled', 'disabled');
 	}
+}
+
+function editActive(id)
+{
+	let productActiveValue = Number($('#product-active-' + id).prop('checked'));
+
+	$.ajax({
+		type: 'POST',
+		url: '/php/edit-product-active.php',
+		data: {
+			id: id,
+			active: productActiveValue,
+		}
+	});
 }

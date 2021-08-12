@@ -133,6 +133,44 @@ $(document).ready (function()
 			},
 		});
 	});
+
+    $('#edit-constants-submit').click(function()
+	{
+		$('#edit-constants-submit-container').css('display', 'none');
+		$('#edit-constants-loading-container').css('display', 'block');
+
+		$.ajax({
+			type: 'POST',
+			url: '/php/save-constants.php',
+			data: {
+				content: $('#constants-file-content').val(),
+			},
+			success: function(response)
+			{
+				console.log(response);
+				if (response == 'Success')
+				{
+					window.location.reload();
+				}
+
+				let responseMessage = '';
+				if (response == 'Empty')
+				{
+					responseMessage = 'Файл не может быть пустым';
+					$('#edit-constants-response').html(responseMessage);
+					$('#edit-constants-loading-container').css('display', 'none');
+					$('#edit-constants-submit-container').css('display', 'block');
+				}
+			},
+			error: function (response)
+			{
+				console.log(response);
+				$('#edit-constants-response').html('Ошибка!');
+				$('#edit-constants-loading-container').css('display', 'none');
+				$('#edit-constants-submit-container').css('display', 'block');
+			}
+		});
+	});
 });
 
 function checkParams()

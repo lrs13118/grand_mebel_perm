@@ -30,6 +30,15 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 				</ol>
 			</nav>
 		</div>
+		<div class="margin-container">
+			<div class="h">Админ-панель</div>
+			<div>
+				<ul>
+					<li><a href="/pages/admin/edit-constants.php">Редактировать основные данные</a></li>
+					<li><a href="/pages/admin/view-products-list.php">Редактировать каталог</a></li>
+				</ul>
+			</div>
+		</div>
 	</main>
 	<?php
 		require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php";

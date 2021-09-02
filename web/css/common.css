@@ -166,6 +166,7 @@ li.blackcolor {border-bottom: 1px solid grey;}
 	.slider-container {display: grid; grid-template-columns: 100%;}
 	.near-slider-right-block {display: none;}
 	.contacts-container {display: grid; grid-template-columns: 100%;}
+    .payment-container {display: grid; grid-template-columns: 50% 50%;}
 }
 @media (max-width: 1100px) {
 	.catalog-blocks-container {display: grid; grid-template-columns: 50% 50%;}
@@ -174,9 +175,12 @@ li.blackcolor {border-bottom: 1px solid grey;}
 	.block-hide-three {display: none;}
 	.blocks-container {display: grid; grid-template-columns: 50% 50%;}
 	.catalog-container {display: grid; grid-template-columns: 100%;}
+    .payment-container {display: grid; grid-template-columns: 100%;}
 }
 @media (max-width: 800px) {
 	.square-grid-container {display: grid; grid-template-columns: 50% 50%;}
+    .product-container {display: grid; grid-template-columns: 100%;}
+    .delivery-container {display: grid; grid-template-columns: 100%;}
 }
 @media (max-width: 700px) {
 	.request-form {padding: 20px 40px;}

@@ -76,7 +76,7 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 							<th scope="row" class="td-width-5"><?php echo $n;?></th>
 							<td class="td-width-5"><?php echo $product['id']; ?></td>
 							<td class="table-small-img td-width-10"><a href=""><img src="/web/img/products/<?php echo $product['img'];?>" alt=""></a></td>
-							<td class="td-width-65 table-product-title"><a href=""><?php echo $product['title']; ?></a></td>
+							<td class="td-width-65 table-product-title"><a href="/pages/product.php?id=<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a></td>
 							<td class="td-width-5">
 								<form method="post">
 									<div class="form-check form-switch">
@@ -84,8 +84,12 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 									</div>
 								</form>
 							</td>
-							<td class="td-width-5 table-product-title"><a href=""><em class="fa fa-edit"></em></a></td>
-							<td class="td-width-5"><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></td>
+							<td class="td-width-5 table-product-title"><a href="/pages/admin/edit-product.php?id=<?php echo $product['id'];?>"><em class="fa fa-edit"></em></a></td>
+							<td class="td-width-5">
+								<form method="post">
+									<button type="button" class="btn-close del-prod"aria-label="Close"></button>
+								</form>
+							</td>
 						</tr>
 						<?php $n++; }?>
 					</tbody>

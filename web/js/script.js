@@ -169,6 +169,67 @@ $(document).ready (function()
 			}
 		});
 	});
+
+    $('#edit-product-submit').click(function()
+	{
+		$('#edit-product-submit-container').css('display', 'none');
+		$('#edit-product-loading-container').css('display', 'block');
+
+		let images = {
+			main_img: $('input[id="img-mainImg"]').val(),
+			img_0: $('input[id="img-0"]').val(),
+			img_1: $('input[id="img-1"]').val(),
+			img_2: $('input[id="img-2"]').val(),
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: '/php/edit-product.php',
+			dataType: 'json',
+			data: {
+				product_id: $('#product-id').val(),
+				main_img: $('input[name="img"]:checked').val(),
+				images: images,
+				active: Number($('#edit-product-active').prop('checked')),
+				main_cat: $('#edit-product-main-cat').val(),
+				cat: $('#edit-product-cat').val(),
+				pod_cat: $('#edit-product-pod-cat').val(),
+				title: $('#edit-product-title').val(),
+				price: $('#edit-product-price').val(),
+				maker: $('#edit-product-maker').val(),
+				height: $('#edit-product-height').val(),
+				width: $('#edit-product-width').val(),
+				depth: $('#edit-product-depth').val(),
+				other_dimensions: $('#edit-product-other-dimensions').val(),
+				description: $('#edit-product-description').val(),
+				additionally: $('#edit-product-additionally').val(),
+				folding_mechanism: $('#edit-product-folding-mechanism').val(),
+				filling: $('#edit-product-filling').val(),
+				metal_frame: Number($('#edit-product-metal-frame').prop('checked')),
+				removable_case: Number($('#edit-product-removable-case').prop('checked')),
+				angle_universal: Number($('#edit-product-angle-universal').prop('checked')),
+				niche_under_taundry: Number($('#edit-product-niche-under-taundry').prop('checked')),
+				wallpaper_protection: Number($('#edit-product-wallpaper-protection').prop('checked')),
+				adjustable_headrests: Number($('#edit-product-adjustable-headrests').prop('checked')),
+				backrest_positions: Number($('#edit-product-backrest-positions').prop('checked')),
+				price0: $('#edit-product-price0').val(),
+				price1: $('#edit-product-price1').val(),
+				price2: $('#edit-product-price2').val(),
+				price3: $('#edit-product-price3').val(),
+			},
+			success: function(response)
+			{
+				console.log(response);
+
+				$('#edit-product-loading-container').css('display', 'none');
+				$('#edit-product-submit-container').css('display', 'block');
+			},
+			error: function (response)
+			{
+				console.log(response);
+			}
+		});
+	});
 });
 
 function checkParams()

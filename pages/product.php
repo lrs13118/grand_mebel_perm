@@ -94,13 +94,18 @@ if (isset($_GET['id']))
 					<?php } if ($subNavItem) { ?>
 					<li class="breadcrumb-item"><a href="/pages/catalog.php?type=<?php echo $subNavItem['anchor'];?>"><?php echo $subNavItem['title'];?></a></li>
 					<?php } ?>
-					<li class="breadcrumb-item active" aria-current="page"><a href=""><?php echo $arProduct['title'];?></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><?php echo $arProduct['title'];?></li>
 				</ol>
 			</nav>
 		</div>
 		<div class="margin-container">
-			<div>
-				<div class="h"><?php echo $title;?></div>
+			<div class="product-header">
+				<div class="h">
+					<?php echo $title;?>
+					<?php if ($_SESSION['auth_admin'] == "yes_auth_admin") { ?>
+						<span class="product-header-edit-icon"><a href="/pages/admin/edit-product.php?id=<?php echo $arProduct['id'];?>"><em class="fa fa-edit"></em></a></span>
+					<?php } ?>
+				</div>
 			</div>
 		</div>
 		<div>

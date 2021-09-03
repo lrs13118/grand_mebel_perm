@@ -100,6 +100,7 @@ main > div {margin-bottom: 40px;}
 .blackcolor a {color: black;}
 li.blackcolor {border-bottom: 1px solid grey;}
 .prod-block-desc {margin: 0 3px;}
+span.product-header-edit-icon {margin: 0 0 0 10px; font-size: 22pt;}
 .product-container {display: grid; grid-template-columns: 50% 50%;}
 .product-img-container {display: grid; grid-template-columns: 15% 85%;}
 .product-img-container div {margin: 5px;}
@@ -159,6 +160,12 @@ li.blackcolor {border-bottom: 1px solid grey;}
 .td-width-65 {width: 65%;}
 .table-product-title a {text-decoration: none; font-size: 14pt;}
 .table-product-title a:hover {color: ;}
+.edit-product-input-container {display: grid; grid-template-columns: 15% 85%;}
+.edit-product-input-container select {margin-top: 5px; margin-bottom: 10px;}
+.gallery-container {display: flex;justify-content: space-start;}
+.gallery-container img {width: 200px;}
+.img-remover {position: relative; top: -200px;}
+.hidden {display: none;}
 @media (max-width: 1600px) {
 	.catalog-blocks-container {display: grid; grid-template-columns: 33.33% 33.33% 33.33%;}
 }
@@ -191,6 +198,7 @@ li.blackcolor {border-bottom: 1px solid grey;}
 }
 @media (max-width: 600px) {
 	.h {font-size: 22pt;}
+    span.product-header-edit-icon {font-size: 16pt;}
 }
 @media (max-width: 500px) {
 	.catalog-blocks-container {display: grid; grid-template-columns: 100%;}

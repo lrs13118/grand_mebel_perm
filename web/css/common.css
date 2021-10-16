@@ -162,6 +162,8 @@ span.product-header-edit-icon {margin: 0 0 0 10px; font-size: 22pt;}
 .table-product-title a:hover {color: ;}
 .edit-product-input-container {display: grid; grid-template-columns: 15% 85%;}
 .edit-product-input-container select {margin-top: 5px; margin-bottom: 10px;}
+.edit-constant-input-container {display: grid; grid-template-columns: 15% 85%;}
+.ajax-response {color: red; font-weight: bold;}
 .gallery-container {display: flex;justify-content: space-start;}
 .gallery-container img {width: 200px;}
 .img-remover {position: relative; top: -200px;}

@@ -134,7 +134,7 @@ $(document).ready (function()
 		});
 	});
 
-    $('#edit-constants-submit').click(function()
+	$('#edit-constants-submit').click(function()
 	{
 		$('#edit-constants-submit-container').css('display', 'none');
 		$('#edit-constants-loading-container').css('display', 'block');
@@ -142,27 +142,40 @@ $(document).ready (function()
 		$.ajax({
 			type: 'POST',
 			url: '/php/save-constants.php',
+			dataType: 'json',
 			data: {
-				content: $('#constants-file-content').val(),
+				title: $('#edit-constant-title').val(),
+				logo: $('#edit-constant-logo').val(),
+				address: $('#edit-constant-address').val(),
+				working_hours: $('#edit-constant-working-hours').val(),
+				instagram_link: $('#edit-constant-instagram-link').val(),
+				instagram: $('#edit-constant-instagram').val(),
+				vk_link: $('#edit-constant-vk-link').val(),
+				email: $('#edit-constant-email').val(),
+				admin_email: $('#edit-constant-admin-email').val(),
+				phone_irina: $('#edit-constant-phone-irina').val(),
+				phone_kristina: $('#edit-constant-phone-kristina').val(),
 			},
 			success: function(response)
 			{
-				if (response == 'Success')
+				if (response.status == 'success')
 				{
-					window.location.reload();
+					$('#edit-constants-response').html(response.text);
+					$('#edit-constants-loading-container').css('display', 'none');
+					$('#edit-constants-submit-container').css('display', 'block');
+					setTimeout('$("#edit-constants-response").html("")', 4000);
 				}
 
-				let responseMessage = '';
-				if (response == 'Empty')
+				if (response.status == 'error')
 				{
-					responseMessage = 'Файл не может быть пустым';
-					$('#edit-constants-response').html(responseMessage);
+					$('#edit-constants-response').html(response.text);
 					$('#edit-constants-loading-container').css('display', 'none');
 					$('#edit-constants-submit-container').css('display', 'block');
 				}
 			},
 			error: function (response)
 			{
+				console.log(response);
 				$('#edit-constants-response').html('Ошибка!');
 				$('#edit-constants-loading-container').css('display', 'none');
 				$('#edit-constants-submit-container').css('display', 'block');
@@ -170,7 +183,7 @@ $(document).ready (function()
 		});
 	});
 
-    $('#edit-product-submit').click(function()
+	$('#edit-product-submit').click(function()
 	{
 		$('#edit-product-submit-container').css('display', 'none');
 		$('#edit-product-loading-container').css('display', 'block');
@@ -219,10 +232,138 @@ $(document).ready (function()
 			},
 			success: function(response)
 			{
-				console.log(response);
-
 				$('#edit-product-loading-container').css('display', 'none');
 				$('#edit-product-submit-container').css('display', 'block');
+
+				if (response.status == 'success')
+				{
+					$('#edit-product-response').html(response.text);
+					setTimeout ('$("#edit-product-response").html("")', 6000);
+				}
+
+				if (response.status == 'error')
+				{
+					$('#edit-product-response').html(response.error);
+					setTimeout ('$("#edit-product-response").html("")', 6000);
+				}
+			},
+			error: function (response)
+			{
+				console.log(response);
+				$('#edit-product-response').html('Ошибка при сохранении данных');
+				setTimeout ('$("#edit-product-response").html("")', 6000);
+			}
+		});
+	});
+
+	$("#edit-product-main-cat").on('change', function()
+	{
+		let mainCatId = this.value;
+		let catSelect = $("#edit-product-cat");
+		let catContainer = $("#edit-product-cat-container");
+		let podCatContainer = $("#edit-product-prod-cat-container");
+
+		$('#kitchens-container').addClass('hidden');
+		$('.edit-product-price').val('0')
+		if (mainCatId == '2')
+		{
+			$('#softfurniture-container').removeClass('hidden');
+		} else {
+			$('#softfurniture-container').addClass('hidden');
+			$('#edit-product-folding-mechanism-not-selected-option').prop('selected', true);
+			$('#edit-product-filling').val('');
+			$('#edit-product-metal-frame').prop('checked', false);
+			$('#edit-product-removable-case').prop('checked', false);
+			$('#edit-product-angle-universal').prop('checked', false);
+			$('#edit-product-niche-under-taundry').prop('checked', false);
+			$('#edit-product-wallpaper-protection').prop('checked', false);
+			$('#edit-product-adjustable-headrests').prop('checked', false);
+			$('#edit-product-backrest-positions').prop('checked', false);
+		}
+
+		if (mainCatId == '' || mainCatId == 41)
+		{
+			catContainer.addClass("hidden");
+			podCatContainer.addClass("hidden");
+		} else {
+			$.ajax({
+				type: 'POST',
+				url: '/php/get-product-categories.php',
+				dataType: 'json',
+				data: {
+					data_type: 'cat',
+					main_cat_id: mainCatId,
+				},
+				success: function(data)
+				{
+					catSelect.empty();
+
+					let optionNotSelected = $('<option>', {'for': 'edit-product-cat', 'value': 0, 'selected': 'selected', text: 'Не выбрано'});
+
+					catSelect.append(optionNotSelected);
+
+					let length = Object.keys(data).length;
+					for (let i = 0;i < length; i++)
+					{
+						let option = $('<option>', {'for': 'edit-product-cat', 'value': data[i]['id'], text: data[i]['title']});
+						catSelect.append(option);
+					}
+
+					catContainer.removeClass("hidden");
+					podCatContainer.addClass("hidden");
+				},
+				error: function (response)
+				{
+					console.log(response);
+				}
+			});
+		}
+	});
+
+	$("#edit-product-cat").on('change', function()
+	{
+		let catId = this.value;
+		let podCatSelect = $("#edit-product-prod-cat");
+		let podCatContainer = $("#edit-product-prod-cat-container");
+
+		if (catId == '10')
+		{
+			$('#kitchens-container').removeClass('hidden');
+		} else {
+			$('#kitchens-container').addClass('hidden');
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: '/php/get-product-categories.php',
+			dataType: 'json',
+			data: {
+				data_type: 'prod_cat',
+				cat_id: catId,
+			},
+			success: function(data)
+			{
+				let length = Object.keys(data).length;
+				if (length > 0)
+				{
+					podCatContainer.removeClass("hidden");
+
+					podCatSelect.empty();
+
+					let optionNotSelected = $('<option>', {'for': 'edit-product-prod-cat', 'value': 0, 'selected': 'selected', text: 'Не выбрано'});
+
+					podCatSelect.append(optionNotSelected);
+
+					for (let i = 0;i < length; i++)
+					{
+						let option = $('<option>', {'for': 'edit-product-prod-cat', 'value': data[i]['id'], text: data[i]['title']});
+						podCatSelect.append(option);
+					}
+
+					podCatContainer.removeClass("hidden");
+				} else {
+					podCatContainer.addClass("hidden");
+				}
 			},
 			error: function (response)
 			{

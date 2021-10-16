@@ -60,7 +60,7 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 			if ($category['id'] != 1 && $category['id'] != 8 && $category['id'] != 13)
 			{
 
-				if (($category['main_cat'] == $arProduct['main_cat']) && ($category['pod_cat'] == 0))
+				if (($category['main_cat'] == $arProduct['main_cat']) && ($category['prod_cat'] == 0))
 				{
 					if ($arProduct['cat'] == $category['cat'])
 					{
@@ -110,7 +110,7 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 		<div class="margin-container">
 			<div class="h">Редактировать <?php echo $arProduct['title'];?></div>
 			<div>
-				<div id="edit-product-response"></div>
+				<div id="edit-product-response" class="ajax-response"></div>
 				<form method="post">
 					<div class="input">
 						<div class="edit-product-input-container">
@@ -140,29 +140,29 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 								<input class="form-check-input" type="checkbox" id="edit-product-active" name="edit-product-active" <?php if ($arProduct['active'] == 1) {echo 'checked';} ?>>
 							</div>
 						</div>
-						<div class="edit-product-input-container">
+						<div class="edit-product-input-container" id="edit-product-main-cat-container">
 							<label for="edit-product-main-cat">Тип продукта: </label>
 							<select name="edit-product-main-cat" id="edit-product-main-cat" class="form-select">
 								<?php foreach($arMainCategories as $arMainCategory) {?>
 									<option for="edit-product-main-cat" value="<?php echo $arMainCategory['category_id'];?>" <?php if (isset($arMainCategory['selected'])) {echo 'selected';}?>><?php echo $arMainCategory['title'];?></option>
 								<?php } ?>
-							<select>
+							</select>
 						</div>
-						<div class="edit-product-input-container <?php if (!$arProduct['cat']) {echo "hidden";}?>">
+						<div class="edit-product-input-container<?php if (!$arProduct['cat']) {echo " hidden";}?>" id="edit-product-cat-container">
 							<label for="edit-product-cat">Вид продукта: </label>
 							<select name="edit-product-cat" id="edit-product-cat" class="form-select">
 								<?php foreach($arCategories as $arCategory) {?>
 									<option for="edit-product-cat" value="<?php echo $arCategory['cat'];?>" <?php if (isset($arCategory['selected'])) {echo 'selected';}?>><?php echo $arCategory['title'];?></option>
 								<?php } ?>
-							<select>
+							</select>
 						</div>
-						<div class="edit-product-input-container <?php if (!$arProduct['pod_cat']) {echo "hidden";}?>">
-							<label for="edit-product-pod-cat">Подвид продукта: </label>
-							<select name="edit-product-pod-cat" id="edit-product-pod-cat" class="form-select">
+						<div class="edit-product-input-container <?php if (!$arProduct['pod_cat']) {echo "hidden";}?>" id="edit-product-prod-cat-container">
+							<label for="edit-product-prod-cat">Подвид продукта: </label>
+							<select name="edit-product-prod-cat" id="edit-product-prod-cat" class="form-select">
 								<?php foreach($arPodCategories as $arPodCategory) {?>
-									<option for="edit-product-pod-cat" value="<?php echo $arPodCategory['pod_cat'];?>" <?php if (isset($arPodCategory['selected'])) {echo 'selected';}?>><?php echo $arPodCategory['title'];?></option>
+									<option for="edit-product-prod-cat" value="<?php echo $arPodCategory['prod_cat'];?>" <?php if (isset($arPodCategory['selected'])) {echo 'selected';}?>><?php echo $arPodCategory['title'];?></option>
 								<?php } ?>
-							<select>
+							</select>
 						</div>
 						<div class="edit-product-input-container">
 							<label for="edit-product-title">Название: </label>
@@ -200,12 +200,12 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 							<label for="edit-product-additionally">Дополнительно: </label>
 							<input type="text" name="edit-product-additionally" id="edit-product-additionally" value="<?php echo $arProduct['additionally'];?>">
 						</div>
-						<div class="<?php if ($arProduct['main_cat'] != 2) {echo "hidden";}?>">
+						<div id="softfurniture-container" class="<?php if ($arProduct['main_cat'] != 2) {echo "hidden";}?>">
 							<div class="edit-product-input-container">
 								<label for="edit-product-folding-mechanism">Раскладной механизм: </label>
 								<select name="edit-product-folding-mechanism" id="edit-product-folding-mechanism" class="form-select">
 									<?php foreach($arFoldingMechanisms as $arFoldingMechanism) {?>
-										<option value="<?php echo $arFoldingMechanism['title'];?>" <?php if (isset($arFoldingMechanism['selected'])) {echo 'selected';}?>><?php echo $arFoldingMechanism['title'];?></option>
+										<option <?php if ($arFoldingMechanism['id'] == 0) { echo "id='edit-product-folding-mechanism-not-selected-option'";} ?> value="<?php echo $arFoldingMechanism['title'];?>" <?php if (isset($arFoldingMechanism['selected'])) {echo 'selected';}?>><?php echo $arFoldingMechanism['title'];?></option>
 									<?php } ?>
 								<select>
 							</div>
@@ -256,14 +256,14 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 								</div>
 							</div>
 						</div>
-						<div <?php if (!$arProduct['tag_for_kd']) {echo "hidden";}?>>
+						<div id="kitchens-container" class="<?php if (!$arProduct['tag_for_kd']) {echo 'hidden';}?>">
 							<div class="edit-product-input-container">
 								<label for="edit-product-price0">1.6 м </label>
-								<input type="text" name="edit-product-price0" id="edit-product-price0" value="<?php echo transformPriceForDisplaying($arProduct['price0']);?>">
+								<input type="text" name="edit-product-price0" id="edit-product-price0" class="edit-product-price" value="<?php echo transformPriceForDisplaying($arProduct['price0']);?>">
 							</div>
 							<div class="edit-product-input-container">
 								<label for="edit-product-price1">1.7 м </label>
-								<input type="text" name="edit-product-price1" id="edit-product-price1" value="<?php echo transformPriceForDisplaying($arProduct['price1']);?>">
+								<input type="text" name="edit-product-price1" id="edit-product-price1" class="edit-product-price" value="<?php echo transformPriceForDisplaying($arProduct['price1']);?>">
 							</div>
 							<div class="edit-product-input-container">
 								<label for="edit-product-price2">1.8 м </label>

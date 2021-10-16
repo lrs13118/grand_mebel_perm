@@ -140,6 +140,20 @@ $updateResult = mysqli_query ($connection, "
 		`active` = '".$active."' 
 	WHERE `id` = '".$productId."'
 ");
+if (mysqli_error($connection)) $arErrors[] = mysqli_error($connection);
 
-echo json_encode(mysqli_error($connection));
+if (!$arErrors)
+{
+	$arResult = [
+		'status' => 'success',
+		'text' => 'Данные успешно сохранены!'
+	];
+} else {
+	$arResult = [
+		'status' => 'error',
+		'error' => implode('<br>', $arErrors)
+	];
+}
+
+echo json_encode($arResult);
 ?>

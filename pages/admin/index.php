@@ -36,6 +36,7 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 				<ul>
 					<li><a href="/pages/admin/edit-constants.php">Редактировать основные данные</a></li>
 					<li><a href="/pages/admin/view-products-list.php">Редактировать каталог</a></li>
+					<li><a href="/pages/admin/requests-list.php">Сообщения через форму</a></li>
 				</ul>
 			</div>
 		</div>
@@ -46,5 +47,8 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 </body>
 </html>
 <?php 
-} else {header("location:/pages/admin/auth.php");}
+} else {
+	$backUrl = $_SERVER['REQUEST_URI'];
+	header("location:/pages/admin/auth.php?backurl=$backUrl");
+}
 ?>

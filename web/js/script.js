@@ -78,6 +78,7 @@ $(document).ready (function()
 
 	$('#auth-submit').click(function()
 	{
+		$redirectPage = $('#backurl').val();
 		$('#auth-submit-container').css('display', 'none');
 		$('#auth-loading-container').css('display', 'block');
 
@@ -92,7 +93,12 @@ $(document).ready (function()
 			{
 				if (response == 'Success')
 				{
-					window.location.replace("/pages/admin/index.php");
+					if ($redirectPage == '')
+					{
+						window.location.replace("/pages/admin/index.php");
+					} else {
+						window.location.replace($redirectPage);
+					}
 				}
 
 				let responseMessage = '';
@@ -411,6 +417,20 @@ function editActive(id)
 		data: {
 			id: id,
 			active: productActiveValue,
+		}
+	});
+}
+
+function processedRequest(id)
+{
+	let processedRequestValue = Number($('#request-status-' + id).prop('checked'));
+
+	$.ajax({
+		type: 'POST',
+		url: '/php/processed-request.php',
+		data: {
+			id: id,
+			processed: processedRequestValue,
 		}
 	});
 }

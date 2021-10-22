@@ -123,7 +123,7 @@
 		</div>
 		<div class="grey-background request-form">
 			<div >
-				<div class="h">Оставьте свою заявку</div>
+				<div class="h">Оставьте свою заявку<?php if ($requestsCount) {echo '<sup class="red-sup"><a href="/pages/admin/requests-list.php">' . $requestsCount . '</a></sup>';}?></div>
 				<div>
 					<p>
 						Напишите пожелание или вопрос.<br>

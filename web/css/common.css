@@ -17,6 +17,7 @@ main > div {margin-bottom: 40px;}
 .block a span {font-size: 17pt; font-weight: bold; color: #fa1436;}
 .block img {width: 100%;}
 .block-desc {margin: 5px 5px 5px 10px;}
+.red-sup a {text-decoration: none; color: red;}
 .request-form {display: flex;justify-content: space-around; padding: 20px 0;}
 .request-form .h {text-align: center;}
 .request-form p {color: white;}

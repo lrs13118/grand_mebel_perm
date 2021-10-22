@@ -1,4 +1,29 @@
 <header>
+	<?php
+		$arRequestsCount = [];
+		$requestsIdResult = mysqli_query($connection, 'SELECT id FROM requests WHERE processed = 0');
+		while ($requestsId = mysqli_fetch_assoc($requestsIdResult))
+		{
+			$arRequestsCount[] = $requestsId;
+		}
+		$requestsCount = count($arRequestsCount);
+
+		$unread = '';
+		if (in_array($requestsCount, [1,21,31,41,51]))
+		{
+			$unread = $requestsCount . ' непрочитанное сообщение, полученное';
+		} else {
+			$unread = $requestsCount . ' непрочитанных сообщения, полученных';
+		}
+
+		if (($_SESSION['auth_admin'] == "yes_auth_admin") && ($requestsCount > 0) && ($_SERVER['REQUEST_URI'] != '/pages/admin/requests-list.php')) { ?>
+		<div class="red-background">
+			<div class="margin-container request-notification">
+				Имеется <?php echo $unread;?> через веб-форму.
+				<a href="/pages/admin/requests-list.php">Просмотреть</a>
+			</div>
+		</div>
+	<?php } ?>
 		<div class="margin-container">
 			<div class="top-header-container">
 				<div class="top-header-mob">

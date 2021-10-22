@@ -105,5 +105,8 @@ if ($_SESSION['auth_admin'] == "yes_auth_admin")
 </body>
 </html>
 <?php 
-} else {header("location:/pages/admin/auth.php");}
+} else {
+	$backUrl = $_SERVER['REQUEST_URI'];
+	header("location:/pages/admin/auth.php?backurl=$backUrl");
+}
 ?>

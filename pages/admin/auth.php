@@ -4,6 +4,12 @@ if ($_SESSION['auth_admin'] != "yes_auth_admin")
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/connection.php";
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/constants.php";
+
+	$redirectPage = '';
+	if (isset($_GET['backurl']))
+	{
+		$redirectPage = $_GET['backurl'];
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,6 +47,7 @@ if ($_SESSION['auth_admin'] != "yes_auth_admin")
 							<div><input type="text" name="auth-login" id="auth-login" placeholder="Логин" onkeyup="checkLoginParams()"></div>
 							<div><input type="text" name="auth-password" id="auth-password" placeholder="Пароль" onkeyup="checkLoginParams()"></div>
 						</div>
+						<input type="hidden" id="backurl" value="<?php echo $redirectPage;?>">
 						<div class="submit-container">
 							<div class="submit-block" id="auth-submit-container">
 								<input type="button" name="auth-submit" id="auth-submit" value="Вход" disabled>

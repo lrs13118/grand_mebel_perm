@@ -9,7 +9,7 @@
 		'INSTAGRAM' => '@grandmebelperm',
 		'VK_LINK' => 'https://vk.com/grandmebelperm',
 		'EMAIL' => 'grandmebelperm@mail.ru',
-		'ADMIN_EMAIL' => 'lrs1311@mail.ru',
+		'ADMIN_EMAIL' => 'lrs13118@mail.ru',
 		'PHONE_IRINA' => '+7 908 274 90 69',
 		'PHONE_KRISTINA' => '+7 909 106 81 87',
 	];
